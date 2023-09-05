@@ -1,0 +1,5 @@
+\.vscode
+\passwordenv
+\package-lock.json
+\.env
+\node_modules
