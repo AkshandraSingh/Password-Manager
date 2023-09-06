@@ -16,6 +16,8 @@ A secure password manager application built with Node.js that allows users to st
 
 👁️ View passwords in decrypted form.
 
+🔑 Generating a secure password for user .
+
 📋 Automatically copy passwords to the clipboard for easy use.
 
 ## Prerequisites
