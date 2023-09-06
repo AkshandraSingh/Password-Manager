@@ -17,12 +17,10 @@ const userValSchema = {
             .string()
             .minOfSpecialCharacters(1)
             .minOfLowercase(3)
-            .minOfUppercase(1)
             .minOfNumeric(1)
             .noWhiteSpaces()
             .onlyLatinCharacters()
             .messages({
-                'password.minOfUppercase': '{#label} should contain at least {#min} uppercase character',
                 'password.minOfSpecialCharacters':
                     '{#label} should contain at least {#min} special character',
                 'password.minOfLowercase': '{#label} should contain at least {#min} lowercase character',

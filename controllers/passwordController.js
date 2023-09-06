@@ -30,7 +30,7 @@ module.exports = {
             const passwordData = new passwordModel(req.body);
             const bcryptPassword = await bcrypt.hash(password, 10);
             passwordData.password = bcryptPassword;
-            passwordData.passwordHistory.push(bcryptPassword);
+            passwordData.passwordHistory.push(password);
             await passwordData.save();
             passwordLogger.log('info', 'Password added successfully!')
             return res.status(201).send({
