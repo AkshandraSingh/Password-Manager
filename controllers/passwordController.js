@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const copyPaste = require('copy-paste');
-
+const generator = require('generate-password');
 
 const passwordModel = require('../models/passwordModel')
 const passwordLogger = require('../utils/passwordLogger/passwordLogger')
@@ -176,4 +176,31 @@ module.exports = {
             });
         }
     },
+
+    passwordGenerator: async (req, res) => {
+        try {
+            const { passwordLength } = req.body
+            const generatedPassword = await generator.generate({
+                length: passwordLength,
+                numbers: true,
+                symbols: true,
+                uppercase: true,
+                lowercase: true,
+                excludeSimilarCharacters: false,
+            });
+            passwordLogger.log('info', 'Password generated successfully')
+            res.status(200).send({
+                success: true,
+                message: "Password generated successfully",
+                generatedPassword: generatedPassword
+            })
+        } catch (error) {
+            passwordLogger, log('error', `Error: ${error.message}`)
+            return res.status(500).send({
+                success: false,
+                message: "Error occurred while retrieving the password.",
+                error: error.message
+            });
+        }
+    }
 }

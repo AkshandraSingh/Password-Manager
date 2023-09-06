@@ -10,5 +10,6 @@ router.get('/listPasswords', password.listPasswords)
 router.post('/editPassword/:passwordId', password.editPassword)
 router.delete('/removePassword/:passwordId', password.removePassword)
 router.post('/passwordDetails/:passwordId', password.passwordDetails)
+router.post('/passwordGenerator', password.passwordGenerator)
 
 module.exports = router
